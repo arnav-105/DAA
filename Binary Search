@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+
+    
+// Function To sort the array using bubble sort function bublle sort(arr,n)
+        
+
+void bubbleSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Swap arr[j] and arr[j + 1]
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+function bubbleSort(arr) {
+    let n = arr.length;
+    for (let i = 0; i < n - 1; i++) {
+        for (let j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Swap
+                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+            }
+        }
+    }
+}
+
+function binarySearch(arr, low, high, target) {
+    if (low > high) return -1;
+
+    let mid = Math.floor(low + (high - low) / 2);
+
+    if (arr[mid] === target)
+        return mid;
+    else if (arr[mid] > target)
+        return binarySearch(arr, low, mid - 1, target);
+    else
+        return binarySearch(arr, mid + 1, high, target);
+}
+
+// Main code
+let arr = [14, 2, 10, 6, 12, 4, 8];
+let n = arr.length;
+let target = 10;
+
+bubbleSort(arr); // Sort the array
+
+let result = binarySearch(arr, 0, n - 1, target);
+
+if (result !== -1)
+    console.log("Element found at index", result);
+else
+    console.log("Element Not Found");
